@@ -9,5 +9,5 @@ Current Status: WORKING!
 # Protocol Changes
 ## 1.14_combat-1 - 1.14_combat-3 (compared to 1.14.4)
 There seem to be no changes affecting BungeeCord.
-## 1.15_combat-1 (compared to 1.15)
+## 1.15_combat-1 & 1.15_combat-6 (compared to 1.15)
 - Added boolean parameter for the shield on crouch option in the Client Settings packet.

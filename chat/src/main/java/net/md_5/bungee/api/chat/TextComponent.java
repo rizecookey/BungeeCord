@@ -2,6 +2,7 @@ package net.md_5.bungee.api.chat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import lombok.AllArgsConstructor;
@@ -172,7 +173,11 @@ public final class TextComponent extends BaseComponent
      */
     public TextComponent(BaseComponent... extras)
     {
-        setText( "" );
+        this();
+        if ( extras.length == 0 )
+        {
+            return;
+        }
         setExtra( new ArrayList<BaseComponent>( Arrays.asList( extras ) ) );
     }
 
@@ -197,27 +202,7 @@ public final class TextComponent extends BaseComponent
     @Override
     protected void toLegacyText(StringBuilder builder)
     {
-        builder.append( getColor() );
-        if ( isBold() )
-        {
-            builder.append( ChatColor.BOLD );
-        }
-        if ( isItalic() )
-        {
-            builder.append( ChatColor.ITALIC );
-        }
-        if ( isUnderlined() )
-        {
-            builder.append( ChatColor.UNDERLINE );
-        }
-        if ( isStrikethrough() )
-        {
-            builder.append( ChatColor.STRIKETHROUGH );
-        }
-        if ( isObfuscated() )
-        {
-            builder.append( ChatColor.MAGIC );
-        }
+        addFormat( builder );
         builder.append( text );
         super.toLegacyText( builder );
     }
