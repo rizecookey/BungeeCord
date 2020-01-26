@@ -37,7 +37,8 @@ public class ClientSettings extends DefinedPacket
         {
             mainHand = DefinedPacket.readVarInt( buf );
         }
-        if ( protocolVersion == ProtocolConstants.MINECRAFT_1_15_COMBAT_1) {
+        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15_COMBAT_1 )
+        {
             useShieldOnCrouch = buf.readBoolean();
         }
     }
@@ -60,8 +61,9 @@ public class ClientSettings extends DefinedPacket
         {
             DefinedPacket.writeVarInt( mainHand, buf );
         }
-        if (protocolVersion == ProtocolConstants.MINECRAFT_1_15_COMBAT_1) {
-            buf.writeBoolean(useShieldOnCrouch);
+        if ( protocolVersion >= ProtocolConstants.MINECRAFT_1_15_COMBAT_1 )
+        {
+            buf.writeBoolean( useShieldOnCrouch );
         }
     }
 

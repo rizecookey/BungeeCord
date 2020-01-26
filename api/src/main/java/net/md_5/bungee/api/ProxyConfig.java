@@ -57,6 +57,14 @@ public interface ProxyConfig
     boolean isLogCommands();
 
     /**
+     * Time in milliseconds to cache server list info from a ping request from
+     * the proxy to a server.
+     *
+     * @return cache time
+     */
+    int getRemotePingCache();
+
+    /**
      * Returns the player max.
      *
      * @return player limit
@@ -71,6 +79,22 @@ public interface ProxyConfig
     Collection<String> getDisabledCommands();
 
     /**
+     * Time in milliseconds before timing out a clients request to connect to a
+     * server.
+     *
+     * @return connect timeout
+     */
+    int getServerConnectTimeout();
+
+    /**
+     * Time in milliseconds before timing out a ping request from the proxy to a
+     * server when attempting to request server list info.
+     *
+     * @return ping timeout
+     */
+    int getRemotePingTimeout();
+
+    /**
      * The connection throttle delay.
      *
      * @return throttle
@@ -79,7 +103,7 @@ public interface ProxyConfig
     int getThrottle();
 
     /**
-     * Whether the proxy will parse IPs with spigot or not
+     * Whether the proxy will parse IPs with spigot or not.
      *
      * @return ip forward
      */
